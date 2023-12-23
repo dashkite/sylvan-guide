@@ -1,0 +1,18 @@
+{
+  "name": "sylvan-guide",
+  "description": "Metarepo for the sylvan guide project",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dashkite/sylvan-guide.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/dashkite/sylvan-guide/issues"
+  },
+  "homepage": "https://github.com/dashkite/sylvan-guide#readme",
+  "devDependencies": {
+    "@dashkite/genie": "^0.7.3",
+    "@dashkite/tempo": "^0.9.3"
+  }
+}

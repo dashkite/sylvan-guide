@@ -1,0 +1,31 @@
+install: pnpm i
+clean-install: rm -rf node_modules pnpm-lock.yaml && pnpm i
+build: pnpm run build
+clean: rm -rf build
+refresh: pnpm i && pnpm run build
+checkout: git checkout $0
+# TODO how to detect when there's a conflict?
+commit: git add -A . &&  git commit -m '$0' || exit 0
+branch: git checkout -b $0 &&  git push --set-upstream origin $0
+merge: git checkout $1 && git merge $0
+publish: npx genie publish
+deploy: npx genie deploy
+undeploy: npx genie undeploy
+pull: git pull
+push: git push
+remove: pnpm rm $0
+# latest <pkg>
+latest:
+  jq
+      -e '.dependencies["$0"] or .devDependencies["$0"]' 
+      package.json 
+    && 
+      pnpm add '$0@latest'
+
+# local <pkg> <path>
+local:
+  jq
+      -e '.dependencies["$0"] or .devDependencies["$0"]' 
+      package.json 
+    && 
+      pnpm add '$1'
